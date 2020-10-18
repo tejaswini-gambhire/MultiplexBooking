@@ -1,0 +1,13 @@
+%h1 Movies
+%hr
+%table
+  %thead
+    %th Name
+    %th Duration
+    %th Actions
+  %tbody
+    - @movies.each do |movie|
+      %tr
+        %td= movie.name
+        %td= "#{movie.duration} minutes"
+        %td= link_to "Shows", shows_movie_path(movie)

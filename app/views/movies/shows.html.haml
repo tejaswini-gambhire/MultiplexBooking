@@ -1,0 +1,16 @@
+%h1= "#{@movie.name} Shows"
+/ add a datepicker here
+%hr
+%table
+  %thead
+    %th Show Time
+    %th Screen
+    %th Status
+    %th Book Seat
+  %tbody
+    - @shows.each do |show|
+      %tr
+        %td= show.start_time
+        %td= show.screen.name
+        %td= show.status
+        %td= link_to "Book Seat", "#"

@@ -31,3 +31,5 @@
 
 en:
   hello: "Hello world"
+  errors:
+    not_authorized: "You're not allowed to perform this action."
