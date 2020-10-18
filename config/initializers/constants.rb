@@ -1,0 +1,1 @@
+ROLES = Role.all.inject({}){|h, role| h[role.id.to_s] = role.name; h }

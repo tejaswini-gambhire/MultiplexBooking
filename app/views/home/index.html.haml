@@ -1,0 +1,8 @@
+.jumbotron
+  .container.text-center
+    %h1 Welcome to Movie Booking System
+    -if !user_signed_in?
+      %h2 Want to book your show?
+      %span.glyphicon.glyphicon-chevron-down
+      %br
+      = link_to "Login", user_session_path, class: "btn btn-primary"
