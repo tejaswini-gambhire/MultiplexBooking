@@ -1,0 +1,14 @@
+%h1 Daily Bookings
+%hr
+  .table-responsive
+    %table.table
+      %thead
+        %th User
+        %th Screen
+        %th Seats Booked
+      %tbody
+        - @bookings.each do |booking_detail|
+          %tr
+            %td= booking_detail['email']
+            %td= booking_detail['screen_name']
+            %td= booking_detail['seat_names'].join(', ')

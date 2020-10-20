@@ -10,6 +10,16 @@ Role::TYPES.each do |key, value|
   Role.find_or_create_by(name: value)
 end
 
+user =  User.find_or_initialize_by(
+          email: 'admin@gmail.com',
+          role_id: ROLES.key('Admin'),
+          mobile_number: '9988998899'
+        )
+
+user.password = 'admin1234'
+user.password_confirmation = 'admin1234'
+user.save
+
 p "======= Created Roles ==========="
 
 screens = [
