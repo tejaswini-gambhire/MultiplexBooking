@@ -15,4 +15,10 @@ Rails.application.routes.draw do
       get :shows
     end
   end
+
+  resources :shows do
+    member do
+      get :seats
+    end
+  end
 end

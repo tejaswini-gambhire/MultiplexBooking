@@ -3,3 +3,29 @@
 h1 {
   color: red;
 }
+
+.searchable-container {
+  margin: 20px 0 0 0;
+}
+
+.searchable-container label.btn-default.booked {
+  background-color: #a70016;
+  color: #FFF;
+}
+
+.searchable-container label.btn-default {
+  width: 100%;
+  border: 1px solid #efefef;
+  margin: 5px;
+  box-shadow: 5px 8px 8px 0 #ccc;
+  background-color: green;
+}
+
+.searchable-container label .bizcontent {
+  width: 100%;
+}
+
+.searchable-container .btn-group {
+  width: 100%;
+ }
+
