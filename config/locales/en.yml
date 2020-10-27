@@ -33,3 +33,13 @@ en:
   hello: "Hello world"
   errors:
     not_authorized: "You're not allowed to perform this action."
+  movie:
+    not_found: 'Movie you were trying to access does not exist'
+  show:
+    not_found: 'Show you were trying to access does not exist'
+    past_show: 'This show is not open for booking now'
+  booking:
+    create:
+      success: 'Your booking for %{movie_name} has been done successfully.'
+      error: 'Your booking could not be done! Please try again'
+      already_booked: 'Someone booked seats %{seat_names} just before you! Please hurry up to get seats booked.'

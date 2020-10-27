@@ -4,12 +4,21 @@ class ShowsController < ApplicationController
   def seats
     authorize @show, :seats?
     @seats = @show.seats.order(id: :asc).group_by(&:position)
+
+    respond_to do |format|
+      format.js {}
+      format.html {}
+    end
   end
 
   private
 
   def load_show
     @show = Show.find_by(id: params[:id])
-    redirect_to request.referrer and return not_found unless @show
+
+    unless @show
+      flash[:error] = I18n.t('show.not_found')
+      redirect_to movies_path
+    end
   end
 end

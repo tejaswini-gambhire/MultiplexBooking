@@ -7,5 +7,13 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render "layouts/navbar" 
+    = render "layouts/navbar"
+    - unless flash.empty?
+      .flash_messages
+      - flash.each do |key, value|
+        %div{class: "#{flash_class(key.to_sym)} alert-dismissible fade show",
+          role: "alert"}
+          %strong= value
+          %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
     = yield

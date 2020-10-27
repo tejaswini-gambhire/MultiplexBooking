@@ -1,0 +1,16 @@
+%h1 My Orders
+%hr
+  .table-responsive
+    %table.table
+      %thead
+        %th Movie
+        %th Time
+        %th Price
+        %th Details
+      %tbody
+        - @bookings.each do |booking|
+          %tr
+            %td= booking.show.movie.name
+            %td= booking.show.start_time
+            %td= booking.total_price
+            %td= link_to 'Show', booking_path(booking), class: 'btn btn-primary'

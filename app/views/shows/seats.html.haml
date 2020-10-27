@@ -1,19 +1,9 @@
+= javascript_pack_tag 'booking'
+
 %h1= "Book Seat"
 %hr
   .container
     .row
       .form-group
         .searchable-container.flex-column
-          - @seats.each do |seat_type, seats_data|
-            %h5= seat_type
-            .div{class: "#{seat_type}"}
-              - seats_data.each_slice(10) do |seats|
-                .row.flex-row
-                  - seats.each do |seat|
-                    .items.col-1
-                      .btn-group.bizmoduleselect{"data-toggle" => "buttons"}
-                        %label.btn.btn-default{class: "#{seat.booking_id.present? ? 'booked disabled' : ''}"}
-                          .bizcontent
-                            %input{:autocomplete => "off", :name => "seat_id[]", :type => "checkbox", :value => "", disabled: seat.booking_id.present?}/
-                            %h5= seat.name
-            %br
+          = render 'seats'

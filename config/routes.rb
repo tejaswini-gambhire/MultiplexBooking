@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
   get 'home/index'
   root to: 'home#index'
 
@@ -20,6 +19,12 @@ Rails.application.routes.draw do
   resources :shows do
     member do
       get :seats
+    end
+  end
+
+  resources :bookings, only: [:index, :create, :show] do
+    collection do
+      get :my_bookings
     end
   end
 end

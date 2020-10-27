@@ -1,0 +1,17 @@
+%h1 Order Receipt
+%hr
+  %h3 You have booked #{@booking.seats_booked} seats of #{@booking.show.movie.name} - #{@booking.show.start_time}. Your booked seats are as below.
+  .table-responsive
+    %table.table
+      %thead
+        %th Seat Location
+        %th Price
+        %th Position
+      %tbody
+        - @booking.seats.each do |seat|
+          %tr
+            %td= seat.name
+            %td= seat.price
+            %td= seat.position
+  %hr
+  %h3 Total Price: #{@booking.total_price}

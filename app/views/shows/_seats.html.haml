@@ -1,0 +1,22 @@
+#seats-content
+  - @seats.each do |seat_type, seats_data|
+    %h5= seat_type
+    .div{class: "#{seat_type}"}
+      - seats_data.each_slice(10) do |seats|
+        .row.flex-row
+          - seats.each do |seat|
+            .items.col-1
+              .btn-group.bizmoduleselect{"data-toggle" => "buttons"}
+                %label.btn.btn-default{class: "#{seat.booking_id.present? ? 'booked disabled' : ''}"}
+                  .bizcontent
+                    %input{:name => "seat_id[]", :type => "checkbox", :value => seat.id, disabled: seat.booking_id.present?, id: "seat-#{seat.name}"}
+                    %h5= seat.name
+    %br
+
+  = link_to 'Confirm', '#', class: 'btn btn-primary', id: 'confirm-seat',
+    'data-show-id' => "#{params[:id]}"
+
+:javascript
+  $(document).ready(function(){
+    window.authenticity_token = "#{form_authenticity_token}"
+  })

@@ -15,6 +15,9 @@ class MoviesController < ApplicationController
 
   def load_movie
     @movie = Movie.find_by(id: params[:id])
-    redirect_to request.referrer and return not_found unless @movie
+    unless @movie
+      flash[:error] = I18n.t('movie.not_found')
+      redirect_to movies_path
+    end
   end
 end
