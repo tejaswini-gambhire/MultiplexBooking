@@ -11,7 +11,7 @@ class BookingPolicy
   end
 
   def show?
-    @record.user_id == current_user.id
+    @record.user_id == user.id
   end
 
   def my_bookings?

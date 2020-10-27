@@ -1,6 +1,6 @@
 #seats-content
   - @seats.each do |seat_type, seats_data|
-    %h5= seat_type
+    %h5= "#{seat_type} - #{seats_data[0].price}"
     .div{class: "#{seat_type}"}
       - seats_data.each_slice(10) do |seats|
         .row.flex-row

@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :show do
-    date { "2020-10-17" }
-    start_time { "2020-10-17 12:19:00" }
-    end_time { "2020-10-17 12:19:00" }
-    screen { nil }
-    movie { nil }
+    date { Date.current + 1.day }
+    start_time { DateTime.parse("#{Date.current + 1.day} 12:00PM") }
+    end_time { DateTime.parse("#{Date.current + 1.day} 3:00PM") }
+    association :screen
+    association :movie
   end
 end

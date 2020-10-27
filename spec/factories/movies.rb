@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :movie do
-    name { "MyString" }
-    is_sctive { false }
-    duration { 1 }
+    name { Faker::Movie.title }
+    is_active { true }
+    duration { 120 }
   end
 end

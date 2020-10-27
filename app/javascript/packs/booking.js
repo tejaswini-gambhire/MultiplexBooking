@@ -7,12 +7,12 @@ $(document).ready(function(){
       },
       complete: function() {
         if(window.location.pathname.includes('seats'))
-          setTimeout(getReservations, 30000);
+          setTimeout(getReservations, 20000);
       }
     })
   }
 
-  setTimeout(getReservations, 15000);
+  setTimeout(getReservations, 20000);
 })
 
 $('#confirm-seat').on('click', function(event) {

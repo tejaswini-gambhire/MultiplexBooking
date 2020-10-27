@@ -10,21 +10,24 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(
                 show_id: params[:show_id],
-                total_price: @seats.map{|a| a.price }.sum,
+                total_price: @seats.map(&:price).sum,
                 seats_booked: @seats.size,
                 user_id: current_user.id
               )
 
     @booking.seats << @seats
-    if @booking.save
+
+    if @booking.valid?
       redirect_to booking_path(@booking.id), success: I18n.t('booking.create.success')
     else
       errors = @booking.errors.full_messages.join(', ')
-      redirect_to seats_show_path(params[:show_id]), error: errors
+      flash[:error] = errors
+      redirect_to seats_show_path(params[:show_id])
     end
   end
 
   def show
+    @booking = Booking.find params[:id]
     authorize @booking
     @booking = Booking.find params[:id]
   end
