@@ -20,13 +20,14 @@ class Booking < ApplicationRecord
 
     criteria = Booking
                 .joins(:user, :seats, show: [:screen])
-                .group('users.email', 'screens.name')
+                .group('users.email', 'screens.name', 'total_price')
                 .for_date(date)
     criteria = criteria.where('shows.screen_id = ?', filters[:screen_id]) if filters[:screen_id]
 
     criteria
       .select(
-        'users.email, screens.name AS screen_name, ARRAY_AGG(seats.name) AS seat_names')
+        'users.email, screens.name AS screen_name, ARRAY_AGG(seats.name) AS seat_names,
+        total_price as price')
       .as_json
   end
 

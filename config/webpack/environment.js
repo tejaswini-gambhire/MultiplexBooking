@@ -8,7 +8,9 @@ $: 'jquery/src/jquery',
 
 jQuery: 'jquery/src/jquery',
 
-Popper: ['popper.js', 'default']
+Popper: ['popper.js', 'default'],
+
+datepicker: 'bootstrap-datepicker/js/bootstrap-datepicker.js'
 
 }))
 

@@ -1,4 +1,8 @@
-%h1 Daily Bookings
+.row
+  .col-lg-12
+    %h1 Daily Bookings
+    %span.float-right
+      %input.form-control.string.datepicker{type: 'text', placeholder: 'Select Date', readonly: true}
 %hr
   .table-responsive
     %table.table
@@ -6,9 +10,11 @@
         %th User
         %th Screen
         %th Seats Booked
+        %th Total Price
       %tbody
         - @bookings.each do |booking_detail|
           %tr
             %td= booking_detail['email']
             %td= booking_detail['screen_name']
             %td= booking_detail['seat_names'].join(', ')
+            %td= booking_detail['price']

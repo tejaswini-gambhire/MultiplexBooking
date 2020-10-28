@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
     @booking.seats << @seats
 
     if @booking.valid?
+      @booking.save
       redirect_to booking_path(@booking.id), success: I18n.t('booking.create.success')
     else
       errors = @booking.errors.full_messages.join(', ')

@@ -59,23 +59,23 @@ end
 
 p "======== Created Movies =========="
 
-[{movie: 'Star Wars', date: Date.tomorrow, start_time: '12pm',
+[{movie: 'Star Wars', date: Date.tomorrow + 1.day, start_time: '12pm',
   base_price: 200, screen: 'Screen 1'},
- {movie: 'Star Wars', date: Date.tomorrow, start_time: '9pm',
+ {movie: 'Star Wars', date: Date.tomorrow + 1.day, start_time: '9pm',
   base_price: 200, screen: 'Screen 1'},
- {movie: 'Star Wars', date: Date.tomorrow + 1.day, start_time: '6pm',
+ {movie: 'Star Wars', date: Date.tomorrow + 2.days, start_time: '6pm',
   base_price: 220, screen: 'Screen 1'},
- {movie: 'The Avengers', date: Date.tomorrow, start_time: '12pm',
+ {movie: 'The Avengers', date: Date.tomorrow + 1.day, start_time: '12pm',
   base_price: 180, screen: 'Screen 2'},
- {movie: 'The Avengers', date: Date.tomorrow, start_time: '9pm',
+ {movie: 'The Avengers', date: Date.tomorrow + 1.day, start_time: '9pm',
   base_price: 200, screen: 'Screen 3'},
- {movie: 'Lord of The Rings', date: Date.tomorrow, start_time: '3pm',
-  base_price: 150, screen: 'Screen 1'},
  {movie: 'Lord of The Rings', date: Date.tomorrow + 1.day, start_time: '3pm',
   base_price: 150, screen: 'Screen 1'},
- {movie: 'Iron Man', date: Date.tomorrow, start_time: '3pm',
+ {movie: 'Lord of The Rings', date: Date.tomorrow + 2.days, start_time: '3pm',
+  base_price: 150, screen: 'Screen 1'},
+ {movie: 'Iron Man', date: Date.tomorrow + 1.day, start_time: '3pm',
   base_price: 150, screen: 'Screen 2'},
- {movie: 'Iron Man', date: Date.tomorrow + 1.day, start_time: '12pm',
+ {movie: 'Iron Man', date: Date.tomorrow + 2.days, start_time: '12pm',
   base_price: 150, screen: 'Screen 1'},
 ].each do |show|
   movie = Movie.find_by(name: show[:movie])
